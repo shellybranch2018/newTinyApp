@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</head>
+ <% include ./partials/_header %>
+
+<body style="padding:40px">
+
+<h1><% urls %></h1>
+<hr style="border-top: 1px solid #ccc;" />
+<div style="padding-top:20px; padding-top:20px; margin-top:30px; max-width:600px; margin:auto">
+<ul class="list-group">
+    <% for (var shortUrl in urls) { %>
+    <li class="list-group-item">
+     
+  <form method="POST" action=<%="/urls/" + shortUrl+ "/delete" %> style:"display:flex; max-width:500px; margin:auto">
+<%= shortUrl %> <%= urls[shortUrl].long %>
+<ul style="float:right">
+<li style="float:left; padding-right: 20px; list-style:none">
+<a href="<%= "/urls/"+shortUrl %>" class="btn btn-secondary" role="button" aria-pressed="true">Edit</a><br />
+</li>
+<li style="float:left; padding-right: 20px; list-style:none">
+<button type="submit" class="btn btn-primary">DELETE</button>
+</li>
+</ul>
+</form>
+<p style="text-align:center">Copy your new short url next to the long url.</p>
+</li>
+<% } %>  
+
+</ul>
+<h2 style="text-align:center"><a href="/urls/new">Enter New URL</a></h2
+ </div>
+</body>
+</html>
